@@ -17,7 +17,17 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "satisfactor": [
+        "dist/satisfactor/satisfactor",
+        "dist/satisfactor"
+      ],
+      "@satisfactor/web-integration-angular": [
+        "dist/satisfactor/web-integration-angular/satisfactor-web-integration-angular",
+        "dist/satisfactor/web-integration-angular"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

@@ -1,27 +1,72 @@
-# SatisfactorWebIntegrationAngular
+# @angular/web-integration-angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+> This package helps you integrate the satisfaction survey into any website implemented in angular
 
-## Development server
+[![NPM](https://img.shields.io/npm/v/satisfactor-web-integration.svg)](https://www.npmjs.com/package/@satisfactor/web-integration-angular) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Install
 
-## Code scaffolding
+```bash
+npm install --save @satisfactor/web-integration-angular
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+### App Module
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```js
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-## Running unit tests
+import { AppComponent } from "./app.component";
+import { SatisfactorModule } from "@satisfactor/web-integration-angular";
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, SatisfactorModule],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
 
-## Running end-to-end tests
+### App Component
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```js
+import { Component } from "@angular/core";
+import { UserSurveyModel } from "@satisfactor/web-integration-angular";
 
-## Further help
+@Component({
+  selector: "app-root",
+  template: `
+    <div>
+      <span>{{ title }} app is running!</span>
+      <satisfactor [userSurvey]="userSurvey" [projectToken]="projectToken"></satisfactor>
+    <div>
+  `,
+  styleUrls: ["./app.component.css"]
+})
+export class AppComponent {
+  title = "Test Angular Integration";
+  userSurvey: UserSurveyModel;
+  projectToken: string;
+  constructor() {
+    this.loadUserDataSurvey();
+  }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  loadUserDataSurvey() {
+    this.projectToken = "LCr8nhtFgB7nrFa7WD8o1h8iHWo9VNLc";
+    this.userSurvey = new UserSurveyModel(
+      "1",
+      "Testing testify",
+      "test@gmail.com",
+      "+1 9876543210",
+      "Testing Company"
+    );
+  }
+}
+```
+
+## License
+
+MIT © [](https://github.com/)

@@ -1,0 +1,20 @@
+{
+  "name": "@satisfactor/web-integration-angular",
+  "version": "0.0.6",
+  "author": {
+    "name": "Andros Serrano",
+    "email": "serrano.hernandez90@gmail.com"
+  },
+  "description": "This package helps you integrate the satisfaction survey into any website implemented in angular",
+  "license": "MIT",
+  "keywords": ["satisfactor", "nps", "survey", "web-integration"],
+  "repository": {
+    "type": "git",
+    "url": "serrano90/satisfactor-web-integration-angula"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.0.1",
+    "@angular/core": "^9.0.1",
+    "tslib": "^1.10.0"
+  }
+}
