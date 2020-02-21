@@ -1,24 +1,72 @@
-# WebIntegrationAngular
+# @angular/web-integration-angular
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+> This package helps you integrate the satisfaction survey into any website implemented in angular
 
-## Code scaffolding
+[![NPM](https://img.shields.io/npm/v/satisfactor-web-integration.svg)](https://www.npmjs.com/package/@satisfactor/web-integration-angular) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Run `ng generate component component-name --project web-integration-angular` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project web-integration-angular`.
-> Note: Don't forget to add `--project web-integration-angular` or else it will be added to the default project in your `angular.json` file. 
+## Install
 
-## Build
+```bash
+npm install --save @satisfactor/web-integration-angular
+```
 
-Run `ng build web-integration-angular` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Publishing
+### App Module
 
-After building your library with `ng build web-integration-angular`, go to the dist folder `cd dist/web-integration-angular` and run `npm publish`.
+```js
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-## Running unit tests
+import { AppComponent } from "./app.component";
+import { SatisfactorModule } from "@satisfactor/web-integration-angular";
 
-Run `ng test web-integration-angular` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, SatisfactorModule],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
 
-## Further help
+### App Component
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```js
+import { Component } from "@angular/core";
+import { UserSurveyModel } from "@satisfactor/web-integration-angular";
+
+@Component({
+  selector: "app-root",
+  template: `
+    <div>
+      <span>{{ title }} app is running!</span>
+      <satisfactor [userSurvey]="userSurvey" [projectToken]="projectToken"></satisfactor>
+    <div>
+  `,
+  styleUrls: ["./app.component.css"]
+})
+export class AppComponent {
+  title = "Test Angular Integration";
+  userSurvey: UserSurveyModel;
+  projectToken: string;
+  constructor() {
+    this.loadUserDataSurvey();
+  }
+
+  loadUserDataSurvey() {
+    this.projectToken = "LCr8nhtFgB7nrFa7WD8o1h8iHWo9VNLc";
+    this.userSurvey = new UserSurveyModel(
+      "1",
+      "Testing testify",
+      "test@gmail.com",
+      "+1 9876543210",
+      "Testing Company"
+    );
+  }
+}
+```
+
+## License
+
+MIT © [](https://github.com/)

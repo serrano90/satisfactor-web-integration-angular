@@ -1,6 +1,6 @@
 {
   "name": "@satisfactor/web-integration-angular",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": {
     "name": "Andros Serrano",
     "email": "serrano.hernandez90@gmail.com"
@@ -13,8 +13,8 @@
     "url": "serrano90/satisfactor-web-integration-angula"
   },
   "peerDependencies": {
-    "@angular/common": "^9.0.1",
-    "@angular/core": "^9.0.1",
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0",
     "tslib": "^1.10.0"
   }
 }
